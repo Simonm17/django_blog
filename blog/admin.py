@@ -7,7 +7,6 @@ class PostAdmin(admin.ModelAdmin):
 
     search_fields = ('title',)
     ordering = ('date_posted',)
-    readonly_fields = ('date_posted',)
 
     fieldsets = (
         ('Post', {'fields': ('title', 'content', 'author', 'date_posted')}),
