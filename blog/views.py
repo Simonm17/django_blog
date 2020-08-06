@@ -9,6 +9,11 @@ class PostListView(ListView):
     paginate_by = 10
     ordering = ['-date_posted']
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['posts'] = Post.objects.all()
+        return context
+
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
