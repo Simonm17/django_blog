@@ -5,3 +5,4 @@ class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'
     paginate_by = 10
+    ordering = ['-date_posted']
