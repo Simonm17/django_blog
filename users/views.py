@@ -11,3 +11,8 @@ class RegisterView(SuccessMessageMixin, FormView):
     template_name = 'users/register.html'
     success_url = '/'
     success_message = 'Your account has been created.'
+
+    def form_valid(self, form):
+        form.instance.is_active = False
+        form.save()
+        return super().form_valid(form)

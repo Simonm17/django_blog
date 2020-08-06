@@ -15,7 +15,7 @@ class PostListView(ListView):
         return context
 
 
-class PostCreateView(LoginRequiredMixin, CreateView):
+class PostCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Post
     fields = ['title', 'content']
     template_name = 'blog/post_form.html'
@@ -24,6 +24,8 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+    def test_func(self):
+        return self.request.user.is_active
 
 class PostDetailView(DetailView):
     model = Post
