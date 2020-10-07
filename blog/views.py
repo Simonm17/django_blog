@@ -3,6 +3,7 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Post
+
 class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'
