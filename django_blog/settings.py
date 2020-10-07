@@ -17,7 +17,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 DEBUG = False
 
 sentry_sdk.init(
-    dsn= os.environ.get('DJ_BLOG_SENTRY_SDN')
+    dsn= os.environ.get('DJ_BLOG_SENTRY_SDN'),
     integrations=[DjangoIntegration()],
     traces_sample_rate=1.0, # We recommend adjusting this value in production
 
